@@ -9,6 +9,7 @@ const port = 4000;
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
+const compression = require('compression');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -19,6 +20,18 @@ mongoose.connect('mongodb+srv://BaQuocLinux:BaQuoc@3011***@cluster0.dmmrs.mongod
   useFindAndModify: false,
   useCreateIndex: true
 });
+app.use(
+  compression({
+    level: 6,
+    threshold: 10 * 100,
+    filter: (req, res) => {
+      if (req.headers['x-no-compression']) {
+        return false
+      }
+      return compression.filter(req, res);
+    }
+  })
+)
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -64,5 +77,5 @@ app.put('/edited/:id', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Bấm vào Link này =>>>>> http://localhost:${port}`);
 })
