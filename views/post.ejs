@@ -19,8 +19,8 @@
 				<form method="POST" action="/post/process">
 					<div class="form-group">
 						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label"><b><b>Province:</b> </b></label>
-							<input type="text" value="" name="province" class="form-control"
+							<label for="exampleFormControlInput1" class="form-label"><b>District: </b></label>
+							<input type="text" value="" name="district" class="form-control"
 								id="exampleFormControlInput1">
 						</div>
 						<div class="mb-3">
@@ -45,6 +45,11 @@
 								rows="3"></textarea>
 						</div>
 						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label"><b>3. Image: </b></label>
+							<input type="text" name="img3" value="" class="form-control" id="exampleFormControlInput1"
+								placeholder="http://photo">
+						</div>
+						<div class="mb-3">
 							<label for="exampleFormControlTextarea1" class="form-label"><b>II. Tổng quan: </b></label>
 							<textarea class="form-control" name="text2" id="exampleFormControlTextarea1"
 								rows="3"></textarea>
@@ -56,8 +61,9 @@
 								rows="3"></textarea>
 						</div>
 						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label"><b>3. Image: </b></label>
-							<input type="text" name="img3" value="" class="form-control" id="exampleFormControlInput1">
+							<label for="exampleFormControlInput1" class="form-label"><b>4. Image: </b></label>
+							<input type="text" name="img4" value="" class="form-control" id="exampleFormControlInput1"
+								placeholder="http://photo">
 						</div>
 						<div class="mb-3">
 							<label for="exampleFormControlTextarea1" class="form-label"><b>IV. Điều kiện tự nhiên:
@@ -66,36 +72,55 @@
 								rows="3"></textarea>
 						</div>
 						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label"><b>5. Image: </b></label>
+							<input type="text" name="img5" value="" class="form-control" id="exampleFormControlInput1"
+								placeholder="http://photo">
+						</div>
+						<div class="mb-3">
 							<label for="exampleFormControlTextarea1" class="form-label"><b>V. Kinh tế: </b></label>
 							<textarea class="form-control" name="text5" id="exampleFormControlTextarea1"
 								rows="3"></textarea>
 						</div>
 						<div class="mb-3">
-							<label for="exampleFormControlTextarea1" class="form-label"><b>VI. Các khu công nghiệp:
+							<label for="exampleFormControlTextarea1" class="form-label"><b>VI. Các khu công nghiệp (1):
 								</b></label>
 							<textarea class="form-control" name="text6" id="exampleFormControlTextarea1"
 								rows="3"></textarea>
 						</div>
-
+						<!--10 pics-->
 						<div id="photo1" style="margin-left: 60px;"></div>
 
 						<div class="mb-3">
-							<label for="exampleFormControlTextarea1" class="form-label"><b>VI. Các cụm công nghiệp:
+							<label for="exampleFormControlTextarea1" class="form-label"><b>VI. Các khu công nghiệp (2):
 								</b></label>
 							<textarea class="form-control" name="text7" id="exampleFormControlTextarea1"
 								rows="3"></textarea>
 						</div>
+
 						<div class="mb-3">
-							<label for="exampleFormControlTextarea1" class="form-label"><b>VII. Du lịch: </b></label>
+							<label for="exampleFormControlTextarea1" class="form-label"><b>VII. Các cụm khu công nghiệp:
+								</b></label>
 							<textarea class="form-control" name="text8" id="exampleFormControlTextarea1"
 								rows="3"></textarea>
 						</div>
-
+						<div class="mb-3">
+							<label for="exampleFormControlTextarea1" class="form-label"><b>VII. Du lịch (1):
+								</b></label>
+							<textarea class="form-control" name="text9" id="exampleFormControlTextarea1"
+								rows="3"></textarea>
+						</div>
+						<!--10 pics-->
 						<div id="photo2" style="margin-left: 60px;"></div>
 
 						<div class="mb-3">
-							<label for="exampleFormControlTextarea1" class="form-label"><b>IX. Tổng quan : </b></label>
-							<textarea class="form-control" name="text9" id="exampleFormControlTextarea1"
+							<label for="exampleFormControlTextarea1" class="form-label"><b>VII. Du lịch (2):
+								</b></label>
+							<textarea class="form-control" name="text10" id="exampleFormControlTextarea1"
+								rows="3"></textarea>
+						</div>
+						<div class="mb-3">
+							<label for="exampleFormControlTextarea1" class="form-label"><b>Iframe Youtube : </b></label>
+							<textarea class="form-control" name="iframe" id="exampleFormControlTextarea1"
 								rows="3"></textarea>
 						</div>
 						<button type="submit" class="btn btn-dark btn-lg btn-block">Submit</button>
@@ -110,7 +135,13 @@
 	<script>
 		document.getElementById("page").innerText = "> Đăng Bài";
 		function photoNumber(number, img) {
-			for (let index = 1; index < 16; index++) {
+			var imgArr;
+			if (img == "img6") {
+				imgArr = 7;
+			} else {
+				imgArr = 11;
+			}
+			for (let index = 1; index < imgArr; index++) {
 				document.getElementById("photo" + number).innerHTML += `
                 <div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">`+ index + ` Photo: </label>
@@ -121,8 +152,8 @@
 			}
 
 		}
-		photoNumber(1, "img4");
-		photoNumber(2, "img5");
+		photoNumber(1, "img6");
+		photoNumber(2, "img7");
 	</script>
 </body>
 
