@@ -1,117 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
+
 <body>
 	<%- include('layouts/header'); -%>
-	<div class="container">
-		<form method="POST" action="/edited/<%= editpost._id %>?_method=PUT">
-			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label">URL: </label>
-				<input type="text" value="<%= editpost.slug %>" name="slug" class="form-control" id="exampleFormControlInput1">
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label"><b>Province: </b></label>
-				<input type="text" value="<%= editpost.province %>" name="province" class="form-control" id="exampleFormControlInput1">
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label"><b>Logo Image:</b></label>
-				<input type="text" name="logo" value="<%= editpost.logo %>" class="form-control" id="exampleFormControlInput1" placeholder="http://photo">
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label"><b>1. Image: </b></label>
-				<input type="text" name="img1"  value="<%= editpost.img1 %>" class="form-control" id="exampleFormControlInput1" placeholder="http://photo">
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label"><b>2. Image: </b></label>
-				<input type="text" name="img2"  value="<%= editpost.img2 %>" class="form-control" id="exampleFormControlInput1" placeholder="http://photo">
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>I. Vị trí địa lý: </b></label>
-				<textarea class="form-control" name="text1" id="exampleFormControlTextarea1" rows="3"><%= editpost.text1 %></textarea>
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>II. Tổng quan: </b></label>
-				<textarea class="form-control" name="text2" id="exampleFormControlTextarea1" rows="3"><%= editpost.text2 %></textarea>
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>III. Đơn vị hành chính: </b></label>
-				<textarea class="form-control" name="text3" id="exampleFormControlTextarea1" rows="3"><%= editpost.text3 %></textarea>
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label"><b>3. Image: </b></label>
-				<input type="text" name="img3"  value="<%= editpost.img3 %>" class="form-control" id="exampleFormControlInput1">
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>IV. Điều kiện tự nhiên: </b></label>
-				<textarea class="form-control" name="text4" id="exampleFormControlTextarea1" rows="3"><%= editpost.text4 %></textarea>
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>V. Kinh tế: </b></label>
-				<textarea class="form-control" name="text5" id="exampleFormControlTextarea1" rows="3"><%= editpost.text5 %></textarea>
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>VI. Các khu công nghiệp: </b></label>
-				<textarea class="form-control" name="text6" id="exampleFormControlTextarea1" rows="3"><%= editpost.text6 %></textarea>
-			</div>
+		<div class="container">
+			<form method="POST" action="/edited/<%= editpost._id %>?_method=PUT">
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label">URL: </label>
+					<input type="text" value="<%= editpost.slug %>" name="slug" class="form-control"
+						id="exampleFormControlInput1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label"><b>Province: </b></label>
+					<input type="text" value="<%= editpost.province %>" name="province" class="form-control"
+						id="exampleFormControlInput1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label"><b>Logo Image:</b></label>
+					<input type="text" name="logo" value="<%= editpost.logo %>" class="form-control"
+						id="exampleFormControlInput1" placeholder="http://photo">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label"><b>1. Image: </b></label>
+					<input type="text" name="img1" value="<%= editpost.img1 %>" class="form-control"
+						id="exampleFormControlInput1" placeholder="http://photo">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label"><b>2. Image: </b></label>
+					<input type="text" name="img2" value="<%= editpost.img2 %>" class="form-control"
+						id="exampleFormControlInput1" placeholder="http://photo">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>I. Vị trí địa lý: </b></label>
+					<textarea class="form-control" name="text1" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text1 %></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>II. Tổng quan: </b></label>
+					<textarea class="form-control" name="text2" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text2 %></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>III. Đơn vị hành chính: </b></label>
+					<textarea class="form-control" name="text3" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text3 %></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label"><b>3. Image: </b></label>
+					<input type="text" name="img3" value="<%= editpost.img3 %>" class="form-control"
+						id="exampleFormControlInput1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>IV. Điều kiện tự nhiên: </b></label>
+					<textarea class="form-control" name="text4" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text4 %></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>V. Kinh tế: </b></label>
+					<textarea class="form-control" name="text5" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text5 %></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>VI. Các khu công nghiệp: </b></label>
+					<textarea class="form-control" name="text6" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text6 %></textarea>
+				</div>
 
-			<div id="photo1" style="margin-left: 60px;"></div>
+				<div id="photo1" style="margin-left: 60px;"></div>
 
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>VI. Các cụm công nghiệp: </b></label>
-				<textarea class="form-control" name="text7" id="exampleFormControlTextarea1" rows="3"><%= editpost.text7 %></textarea>
-			</div>
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>VII. Du lịch: </b></label>
-				<textarea class="form-control" name="text8" id="exampleFormControlTextarea1" rows="3"><%= editpost.text8 %></textarea>
-			</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>VI. Các cụm công nghiệp: </b></label>
+					<textarea class="form-control" name="text7" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text7 %></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>VII. Du lịch: </b></label>
+					<textarea class="form-control" name="text8" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text8 %></textarea>
+				</div>
 
-			<div id="photo2" style="margin-left: 60px;"></div>
+				<div id="photo2" style="margin-left: 60px;"></div>
 
-			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"><b>IX. Tổng quan :  </b></label>
-				<textarea class="form-control" name="text9" id="exampleFormControlTextarea1" rows="3"><%= editpost.text9 %></textarea>
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
-	</div>
-	<% var array1= [];%>
-	<% var array2= [];%>
-	<% console.log(editpost.img4.length) %>
-	<% for(var i = 1; i < 16; i++){ %>
-	<% array1.push(editpost.img4['photo'+i]) %>
-	<% array2.push(editpost.img5['photo'+i]) %>
-	<% } %>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label"><b>IX. Tổng quan : </b></label>
+					<textarea class="form-control" name="text9" id="exampleFormControlTextarea1"
+						rows="3"><%= editpost.text9 %></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+		<% var array1=[];%>
+			<% var array2=[];%>
+				<% console.log(editpost.img4.length) %>
+					<% for(var i=1; i < 16; i++){ %>
+						<% array1.push(editpost.img4['photo'+i]) %>
+							<% array2.push(editpost.img5['photo'+i]) %>
+								<% } %>
 
-	<script>
-		
-			var array1 = "<%= array1 %>";
-			var array1 = array1.split(",");
-			var array2 = "<%= array2 %>";
-			var array2 = array2.split(",");
-			function photoNumber(number, img, arr) {
-				for (let index = 0; index < 15; index++) {
-					document.getElementById("photo"+number).innerHTML += `
+									<script>
+
+										var array1 = "<%= array1 %>";
+										var array1 = array1.split(",");
+										var array2 = "<%= array2 %>";
+										var array2 = array2.split(",");
+										function photoNumber(number, img, arr) {
+											for (let index = 0; index < 15; index++) {
+												document.getElementById("photo" + number).innerHTML += `
 					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">`+(index+1)+` Photo: </label>
-						<input type="text" name="`+img+`.photo`+(index+1)+`" class="form-control" id="exampleFormControlInput1" placeholder="http://photo" value="`+arr[index]+`">
+						<label for="exampleFormControlInput1" class="form-label">`+ (index + 1) + ` Photo: </label>
+						<input type="text" name="`+ img + `.photo` + (index + 1) + `" class="form-control" id="exampleFormControlInput1" placeholder="http://photo" value="` + arr[index] + `">
 					</div>
 					`;
-					
-				}
-				
-			}
-			photoNumber(1, "img4", array1);
-			photoNumber(2, "img5", array2);
-		
-	</script>
-	
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-	
+
+											}
+
+										}
+										photoNumber(1, "img4", array1);
+										photoNumber(2, "img5", array2);
+
+									</script>
+
+									<script
+										src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+										integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+										crossorigin="anonymous"></script>
+
 </body>
+
 </html>

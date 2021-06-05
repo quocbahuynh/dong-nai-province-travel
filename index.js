@@ -11,8 +11,8 @@ const methodOverride = require('method-override');
 const path = require('path');
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}))
-mongoose.plugin(slug); 
+app.use(bodyParser.urlencoded({ extended: true }))
+mongoose.plugin(slug);
 mongoose.connect('mongodb+srv://BaQuocLinux:BaQuoc@3011***@cluster0.dmmrs.mongodb.net/travel', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -26,41 +26,39 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(methodOverride('_method'))
 
-app.get('/',async (req, res) => {
-  const readposts = await ReadData.find({}).sort({_id:-1}).limit(20)
-  res.render('index',{
+app.get('/', async (req, res) => {
+  const readposts = await ReadData.find({}).sort({ _id: -1 }).limit(20)
+  res.render('index', {
     readposts,
   })
 })
 
-app.get('/post',async (req, res) => {
+app.get('/post', async (req, res) => {
   res.render('post');
 })
 
-app.get('/edit/:id',async (req, res) => {
- // console.log(req.params.id)
-  const editpost = await ReadData.findOne({_id: req.params.id})
+app.get('/edit/:id', async (req, res) => {
+  const editpost = await ReadData.findOne({ _id: req.params.id })
   console.log(editpost._id);
   res.render('edit', {
     editpost
   })
-
-  
 })
 
-app.post('/delete/:id',async (req, res) => {
-  await ReadData.deleteOne({ _id: req.params.id})
+app.post('/delete/:id', async (req, res) => {
+  await ReadData.deleteOne({ _id: req.params.id })
   res.redirect('back');
 })
-app.post('/post/process', async(req,res)=>{
+
+app.post('/post/process', async (req, res) => {
   await ReadData.create(req.body)
   console.log(req.body);
   res.redirect('back');
 })
 
 
-app.put('/edited/:id',async (req, res) => {
-  await ReadData.updateOne({_id: req.params.id}, req.body)
+app.put('/edited/:id', async (req, res) => {
+  await ReadData.updateOne({ _id: req.params.id }, req.body)
   res.redirect("/")
 })
 
