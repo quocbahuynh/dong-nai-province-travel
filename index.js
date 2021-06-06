@@ -11,7 +11,6 @@ const slug = require('mongoose-slug-generator');
 const ReadData = require('./models/ReadData');
 const Errored = require('./error');
 const app = express();
-const port = 4000;
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
@@ -99,6 +98,10 @@ app.use("*", (req, res, next) => {
   next()
 });
 
-app.listen(port, () => {
-  console.log(`Bấm vào Link này =>>>>> http://localhost:${port}`);
+let port = process.env.PORT;
+if (port == null || port == "") {
+port = 4000;
+}
+app.listen(port, ()=>{
+console.log('App listening...')
 })
