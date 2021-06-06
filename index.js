@@ -16,6 +16,22 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
 const compression = require('compression');
+const expressSession = require('express-session');
+
+const newPostController = require('./controllers/newPost')
+const editPostController = require('./controllers/editPost')
+const deletePostController = require('./controllers/deletePost')
+const storePostController = require('./controllers/storePost')
+const newPostProcessController = require('./controllers/newPostProcess')
+const putEditPostController = require('./controllers/putEditPost')
+const registerPostController = require('./controllers/register')
+const storeAdminPostController = require('./controllers/storeAdmin')
+const loginAdminController = require('./controllers/login')
+const loginAdminProcessController = require('./controllers/loginAdmin')
+const authMiddleware = require('./middleware/authMiddleware')
+const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
+const logoutController = require('./controllers/logout')
+
 
 var error = Errored.error("ⶇ끶๢ɠ䘍䁧ĸව將꓀萈怢肮‌怌肖愐޺ﬖ䀂̰À⌧őﳩ6䔐Ű੬鶀㩨솃⑍㐤ᢱꖇᨳ⣤祓谔");
 
@@ -30,7 +46,9 @@ mongoose.connect(error, {
   useCreateIndex: true
 });
 
-
+app.use(expressSession({
+  secret: 'keyboard cat'
+}))
 app.use(
   compression({
     level: 6,
@@ -51,52 +69,35 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(methodOverride('_method'))
 
-app.get('/', async (req, res) => {
-  const readposts = await ReadData.find({}).sort({ _id: -1 }).limit(20)
-  res.render('index', {
-    readposts,
-  })
-})
+app.get('/', authMiddleware, storePostController)
 
-app.get('/login', async (req, res) => {
-  res.render('login');
-})
+app.get('/post', authMiddleware, newPostController)
 
-app.get('/logout', function (req, res) {
-  req.logout();
-  res.redirect('/');
+app.get('/edit/:id', authMiddleware, editPostController)
+
+app.post('/delete/:id', authMiddleware, deletePostController)
+
+app.post('/post/process', authMiddleware, newPostProcessController)
+
+app.put('/edited/:id', authMiddleware, putEditPostController)
+
+app.get('/register', redirectIfAuthenticatedMiddleware, registerPostController)
+
+app.post('/users/register', redirectIfAuthenticatedMiddleware, storeAdminPostController)
+
+app.get('/login', redirectIfAuthenticatedMiddleware, loginAdminController)
+
+app.post('/users/login', redirectIfAuthenticatedMiddleware, loginAdminProcessController)
+
+app.get('/logout', logoutController)
+
+app.use((req, res) => res.redirect('/'));
+
+global.loggedIn = null;
+app.use("*", (req, res, next) => {
+  loggedIn = req.session.userId;
+  next()
 });
-
-app.get('/post', async (req, res) => {
-  res.render('post');
-})
-
-app.get('/edit/:id', async (req, res) => {
-  const editpost = await ReadData.findOne({ _id: req.params.id })
-  res.render('edit', {
-    editpost
-  })
-})
-
-
-
-app.post('/delete/:id', async (req, res) => {
-  await ReadData.deleteOne({ _id: req.params.id })
-  res.redirect('back');
-})
-
-app.post('/post/process', async (req, res) => {
-  await ReadData.create(req.body)
-  res.redirect('back');
-})
-
-
-app.put('/edited/:id', async (req, res) => {
-  await ReadData.updateOne({ _id: req.params.id }, req.body)
-  res.redirect("/")
-})
-
-
 
 app.listen(port, () => {
   console.log(`Bấm vào Link này =>>>>> http://localhost:${port}`);
