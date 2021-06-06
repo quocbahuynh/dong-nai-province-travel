@@ -10,7 +10,6 @@ const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
 const ReadData = require('./models/ReadData');
 const Errored = require('./error');
-const Schema = mongoose.Schema;
 const app = express();
 const port = 4000;
 const bodyParser = require('body-parser');
@@ -19,8 +18,10 @@ const path = require('path');
 const compression = require('compression');
 
 var error = Errored.error("ⶇ끶๢ɠ䘍䁧ĸව將꓀萈怢肮‌怌肖愐޺ﬖ䀂̰À⌧őﳩ6䔐Ű੬鶀㩨솃⑍㐤ᢱꖇᨳ⣤祓谔");
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
 mongoose.plugin(slug);
 mongoose.connect(error, {
   useNewUrlParser: true,
@@ -28,6 +29,8 @@ mongoose.connect(error, {
   useFindAndModify: false,
   useCreateIndex: true
 });
+
+
 app.use(
   compression({
     level: 6,
@@ -40,6 +43,7 @@ app.use(
     }
   })
 )
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -54,6 +58,15 @@ app.get('/', async (req, res) => {
   })
 })
 
+app.get('/login', async (req, res) => {
+  res.render('login');
+})
+
+app.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/');
+});
+
 app.get('/post', async (req, res) => {
   res.render('post');
 })
@@ -65,6 +78,8 @@ app.get('/edit/:id', async (req, res) => {
   })
 })
 
+
+
 app.post('/delete/:id', async (req, res) => {
   await ReadData.deleteOne({ _id: req.params.id })
   res.redirect('back');
@@ -72,7 +87,6 @@ app.post('/delete/:id', async (req, res) => {
 
 app.post('/post/process', async (req, res) => {
   await ReadData.create(req.body)
-  console.log(req.body);
   res.redirect('back');
 })
 
@@ -81,6 +95,7 @@ app.put('/edited/:id', async (req, res) => {
   await ReadData.updateOne({ _id: req.params.id }, req.body)
   res.redirect("/")
 })
+
 
 
 app.listen(port, () => {
