@@ -18,6 +18,7 @@ const compression = require('compression');
 const expressSession = require('express-session');
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const nocache = require("nocache");
 
 const ReadData = require('./models/ReadData');
 //CLIENT CONTROLLERS
@@ -49,7 +50,7 @@ mongoose.connect(error, {
   useFindAndModify: false,
   useCreateIndex: true
 });
-
+app.use(nocache());
 app.use(cors())
 app.use(cookieParser())
 
@@ -66,6 +67,8 @@ app.use(helmet.noSniff());
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
+
+
 app.set('trust proxy', 1) // trust first proxy
 app.use(expressSession({
   secret: 'keyboard cat'
