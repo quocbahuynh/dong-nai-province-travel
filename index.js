@@ -9,7 +9,6 @@ const ejs = require('ejs');
 const helmet = require("helmet");
 const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
-const ReadData = require('./models/ReadData');
 const Errored = require('./error');
 const app = express();
 const bodyParser = require('body-parser');
@@ -20,19 +19,25 @@ const expressSession = require('express-session');
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
-const newPostController = require('./controllers/newPost')
-const editPostController = require('./controllers/editPost')
-const deletePostController = require('./controllers/deletePost')
-const storePostController = require('./controllers/storePost')
-const newPostProcessController = require('./controllers/newPostProcess')
-const putEditPostController = require('./controllers/putEditPost')
-const registerPostController = require('./controllers/register')
-const storeAdminPostController = require('./controllers/storeAdmin')
-const loginAdminController = require('./controllers/login')
-const loginAdminProcessController = require('./controllers/loginAdmin')
+const ReadData = require('./models/ReadData');
+//CLIENT CONTROLLERS
+const indexController = require('./controllers/client/index')
+const postController = require('./controllers/client/post')
+
+//ADMIN CONTROLLERS
+const newPostController = require('./controllers/admin/newPost')
+const editPostController = require('./controllers/admin/editPost')
+const deletePostController = require('./controllers/admin/deletePost')
+const storePostController = require('./controllers/admin/storePost')
+const newPostProcessController = require('./controllers/admin/newPostProcess')
+const putEditPostController = require('./controllers/admin/putEditPost')
+const registerPostController = require('./controllers/admin/register')
+const storeAdminPostController = require('./controllers/admin/storeAdmin')
+const loginAdminController = require('./controllers/admin/login')
+const loginAdminProcessController = require('./controllers/admin/loginAdmin')
 const authMiddleware = require('./middleware/authMiddleware')
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
-const logoutController = require('./controllers/logout')
+const logoutController = require('./controllers/admin/logout')
 
 
 
@@ -85,29 +90,35 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(methodOverride('_method'))
 
-app.get('/', authMiddleware, storePostController)
+//Client
+app.get('/', redirectIfAuthenticatedMiddleware, indexController)
+app.get('/post', redirectIfAuthenticatedMiddleware, postController)
 
-app.get('/post', authMiddleware, newPostController)
 
-app.get('/edit/:id', authMiddleware, editPostController)
+// Admin
+app.get('/admin/database', authMiddleware, storePostController)
 
-app.post('/delete/:id', authMiddleware, deletePostController)
+app.get('/admin/database/post', authMiddleware, newPostController)
 
-app.post('/post/process', authMiddleware, newPostProcessController)
+app.get('/admin/database/edit/:id', authMiddleware, editPostController)
 
-app.put('/edited/:id', authMiddleware, putEditPostController)
+app.post('/admin/database/delete/:id', authMiddleware, deletePostController)
 
-app.get('/register', redirectIfAuthenticatedMiddleware, registerPostController)
+app.post('/admin/database/post/process', authMiddleware, newPostProcessController)
 
-app.post('/users/register', redirectIfAuthenticatedMiddleware, storeAdminPostController)
+app.put('/admin/database/edited/:id', authMiddleware, putEditPostController)
 
-app.get('/login', redirectIfAuthenticatedMiddleware, loginAdminController)
+app.get('/admin/register', redirectIfAuthenticatedMiddleware, registerPostController)
 
-app.post('/users/login', redirectIfAuthenticatedMiddleware, loginAdminProcessController)
+app.post('/admin/users/register', redirectIfAuthenticatedMiddleware, storeAdminPostController)
 
-app.get('/logout', logoutController)
+app.get('/admin', redirectIfAuthenticatedMiddleware, loginAdminController)
 
-app.use((req, res) => res.redirect('/'));
+app.post('/admin/users/login', redirectIfAuthenticatedMiddleware, loginAdminProcessController)
+
+app.get('/admin/logout', logoutController)
+
+app.use((req, res) => res.redirect('/admin'));
 
 global.loggedIn = null;
 app.use("*", (req, res, next) => {

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Admin</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+  <%- include('layouts/header'); -%>
+    <br /><br />
+    <div class="container">
+      <table class="table table-bordered">
+        <thead class="p-3 mb-2 bg-dark text-white">
+          <tr>
+            <th scope="col" class="col-1">
+              <%= readposts.length %>
+            </th>
+            <th scope="col">Travel Posts</th>
+            <th scope="col" class="col-1">Edit</th>
+            <th scope="col" class="col-1">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var i=0; i < readposts.length; i++){ %>
+            <tr>
+              <th scope="row">
+                <%= i %>
+              </th>
+              <td>
+                <%= readposts[i].district %>
+              </td>
+              <td><a href="/admin/database/edit/<%= readposts[i]._id %>" target="_blank">Edit</a>
+              </td>
+              <td><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-id="<%= readposts[i]._id %>">
+                  Delete</a>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete this post?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Do you sure delete this post?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-dark">Cancel</button>
+                        <button type="button" id="delete-now" class="btn btn-danger"
+                          data-bs-dismiss="modal">Delete</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+
+    </div>
+    <br /><br /><br />
+    <footer class="bg-light text-center bg-dark text-white text-lg-start"
+      style="position: fixed; bottom: 0; width: 100%;">
+      <!-- Copyright -->
+      <div class="text-center p-3">
+        © 2020 Copyright:
+        <a class="text-light" target="_blank" href="https://www.facebook.com/quocbahuynhtt/">Quốc Huỳnh</a>
+        &
+        <a class="text-light" target="_blank" href="https://www.facebook.com/kienphan30103">Kiên Phan</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"></script>
+    <script>
+
+      var id;
+      var exampleModal = document.getElementById('exampleModal')
+      exampleModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        id = button.getAttribute('data-bs-id');
+      })
+      var deleteNow = document.getElementById('delete-now');
+      deleteNow.onclick = function () {
+        fetch("/admin/database/delete/" + id, { method: "POST", })
+        location.reload();
+      }
+
+    </script>
+</body>
+
+</html>
