@@ -18,6 +18,7 @@ const path = require('path');
 const compression = require('compression');
 const expressSession = require('express-session');
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 
 const newPostController = require('./controllers/newPost')
 const editPostController = require('./controllers/editPost')
@@ -34,6 +35,7 @@ const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthen
 const logoutController = require('./controllers/logout')
 
 
+
 var error = Errored.error("ⶇ끶๢ɠ䘍䁧ĸව將꓀萈怢肮‌怌肖愐޺ﬖ䀂̰À⌧őﳩ6䔐Ű੬鶀㩨솃⑍㐤ᢱꖇᨳ⣤祓谔");
 mongoose.plugin(slug);
 mongoose.connect(error, {
@@ -44,6 +46,7 @@ mongoose.connect(error, {
 });
 
 app.use(cors())
+app.use(cookieParser())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -60,7 +63,7 @@ app.use(helmet.noSniff());
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
-
+app.set('trust proxy', 1) // trust first proxy
 app.use(expressSession({
   secret: 'keyboard cat'
 }))
