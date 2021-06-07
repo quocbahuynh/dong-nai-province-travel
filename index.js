@@ -62,7 +62,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
+app.use(helmet.xssFilter({ setOnOldIE: true }));
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
 app.use(helmet.frameguard());
@@ -72,7 +72,7 @@ app.use(helmet.ieNoOpen());
 app.use(helmet.noSniff());
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
-app.use(helmet.xssFilter({ setOnOldIE: true }));
+
 
 
 app.set('trust proxy', 1) // trust first proxy
