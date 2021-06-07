@@ -118,7 +118,7 @@ app.post('/admin/users/login', redirectIfAuthenticatedMiddleware, loginAdminProc
 
 app.get('/admin/logout', logoutController)
 
-app.use((req, res) => res.redirect('/admin'));
+app.use((req, res) => res.redirect('/'));
 
 global.loggedIn = null;
 app.use("*", (req, res, next) => {
