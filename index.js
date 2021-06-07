@@ -56,6 +56,7 @@ app.use(cookieParser())
 app.use(express.json()); 
 app.use(express.urlencoded());
 
+app.use(helmet.noCache());
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
 app.use(helmet.frameguard());
