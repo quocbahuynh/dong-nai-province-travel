@@ -4,20 +4,24 @@
 * KHÔNG chia sẻ code
 * 2. CHÚNG TÔI NHẮC LẠI LÀ KHÔNG CHIA SẺ CODE DƯỚI BẤT KỲ HÌNH THỨC NÀO!
 */
-const express = require('express');
-const ejs = require('ejs');
-const helmet = require("helmet");
-const mongoose = require('mongoose');
-const slug = require('mongoose-slug-generator');
-const Errored = require('./error');
-const app = express();
-const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
-const path = require('path');
-const compression = require('compression');
-const expressSession = require('express-session');
+const express = require('express')
+const ejs = require('ejs')
+const helmet = require("helmet")
+const mongoose = require('mongoose')
+const slug = require('mongoose-slug-generator')
+const Errored = require('./error')
+const methodOverride = require('method-override')
+const path = require('path')
+const compression = require('compression')
+const cookieSession = require('cookie-session')
 const cors = require('cors')
-const nocache = require("nocache");
+const nocache = require("nocache")
+var cookieParser = require('cookie-parser')
+var csrf = require('csurf')
+var bodyParser = require('body-parser')
+
+
+const app = express()
 
 const ReadData = require('./models/ReadData');
 //CLIENT CONTROLLERS
@@ -49,11 +53,15 @@ mongoose.connect(error, {
   useFindAndModify: false,
   useCreateIndex: true
 });
+
+
 app.use(nocache());
 app.use(cors())
 
-app.use(express.json()); 
-app.use(express.urlencoded());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
 
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
@@ -64,13 +72,18 @@ app.use(helmet.ieNoOpen());
 app.use(helmet.noSniff());
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
-app.use(helmet.xssFilter());
+app.use(helmet.xssFilter({ setOnOldIE: true }));
 
 
 app.set('trust proxy', 1) // trust first proxy
-app.use(expressSession({
-  secret: 's3Cur3',
-  name: 'sessionId'
+app.use(cookieSession({
+  secret: 'anystringoftext',
+  name: 'session',
+  keys: ['key1', 'key2'],
+  cookie: {
+    secure: true,
+    httpOnly: true
+  }
 }))
 app.use(
   compression({
