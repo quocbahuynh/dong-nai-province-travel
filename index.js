@@ -17,7 +17,6 @@ const methodOverride = require('method-override');
 const path = require('path');
 const compression = require('compression');
 const expressSession = require('express-session');
-const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
 const newPostController = require('./controllers/newPost')
@@ -45,7 +44,6 @@ mongoose.connect(error, {
   useCreateIndex: true
 });
 
-app.use(cors())
 app.use(cookieParser())
 
 app.use(bodyParser.json())
