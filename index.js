@@ -55,7 +55,17 @@ app.use(cookieParser())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: false,
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "example.com"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+  })
+);
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
 app.use(helmet.frameguard());
@@ -128,8 +138,8 @@ app.use("*", (req, res, next) => {
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-port = 4000;
+  port = 4000;
 }
-app.listen(port, ()=>{
-console.log('App listening...')
+app.listen(port, () => {
+  console.log('App listening...')
 })
