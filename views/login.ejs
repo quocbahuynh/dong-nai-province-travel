@@ -28,8 +28,8 @@
                 </label>
 
                 <input class="button" type="submit" value="Sign in">
+                <p onclick="pass()" style="font-size: 12px; color: #24292d; cursor: pointer;">Quên mật khẩu?</p>
             </form>
-
         </div>
     </body>
     <footer class="bg-light text-center bg-dark text-white text-lg-start"
@@ -45,5 +45,15 @@
         </div>
         <!-- Copyright -->
     </footer>
+    <script>
+        function pass(){
+            alert(`
+            Các bước lấy lại tài khoản:
+            Bước 1: Nhấn Get Start.
+            Bước 2: Gõ "travel password".
+            `)
+            window.open('https://www.messenger.com/t/102513617770387', '_blank');
+        }
+    </script>
 
 </html>
