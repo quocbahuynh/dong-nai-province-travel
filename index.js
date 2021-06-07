@@ -17,7 +17,6 @@ const path = require('path');
 const compression = require('compression');
 const expressSession = require('express-session');
 const cors = require('cors')
-const cookieParser = require('cookie-parser')
 const nocache = require("nocache");
 
 const ReadData = require('./models/ReadData');
@@ -52,7 +51,6 @@ mongoose.connect(error, {
 });
 app.use(nocache());
 app.use(cors())
-app.use(cookieParser())
 
 app.use(express.json()); 
 app.use(express.urlencoded());
@@ -71,7 +69,8 @@ app.use(helmet.xssFilter());
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(expressSession({
-  secret: 'keyboard cat'
+  secret: 's3Cur3',
+  name: 'sessionId'
 }))
 app.use(
   compression({
@@ -94,8 +93,8 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'))
 
 //Client
-app.get('/', redirectIfAuthenticatedMiddleware, indexController)
-app.get('/post', redirectIfAuthenticatedMiddleware, postController)
+app.get('/', indexController)
+app.get('/post', postController)
 
 
 // Admin
