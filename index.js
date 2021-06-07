@@ -17,6 +17,7 @@ const methodOverride = require('method-override');
 const path = require('path');
 const compression = require('compression');
 const expressSession = require('express-session');
+const cors = require('cors')
 
 const newPostController = require('./controllers/newPost')
 const editPostController = require('./controllers/editPost')
@@ -34,10 +35,6 @@ const logoutController = require('./controllers/logout')
 
 
 var error = Errored.error("ⶇ끶๢ɠ䘍䁧ĸව將꓀萈怢肮‌怌肖愐޺ﬖ䀂̰À⌧őﳩ6䔐Ű੬鶀㩨솃⑍㐤ᢱꖇᨳ⣤祓谔");
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-
 mongoose.plugin(slug);
 mongoose.connect(error, {
   useNewUrlParser: true,
@@ -46,7 +43,12 @@ mongoose.connect(error, {
   useCreateIndex: true
 });
 
+app.use(cors())
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(helmet());
+
 app.use(helmet.contentSecurityPolicy());
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
