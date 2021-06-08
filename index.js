@@ -72,7 +72,7 @@ app.use(
   contentSecurityPolicy({
     useDefaults: true,
     directives: {
-      defaultSrc: ["'self'", "*"],
+      defaultSrc: ["'self'", "*", "report-uri /csp_report_parser"],
       scriptSrc: ["'self'", "ajax.googleapis.com", "google.com", "cdn.jsdelivr.net"],
       frameSrc: ["https://*.google.com"],
       objectSrc: ["'none'"],
