@@ -76,7 +76,7 @@ app.use(
       scriptSrc: ["'self'", "ajax.googleapis.com", "google.com", "cdn.jsdelivr.net"],
       frameSrc: ["https://*.google.com"],
       objectSrc: ["'none'"],
-      imgSrc: ["'self'", "data:image/svg+xml"],
+      imgSrc: ["'self' data:", "data:image/svg+xml"],
       upgradeInsecureRequests: [],
     },
     reportOnly: false,
