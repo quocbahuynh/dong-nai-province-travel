@@ -30,6 +30,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.12.11",
     "mongoose-slug-generator": "^1.0.4",
-    "nocache": "^3.0.0"
+    "nocache": "^3.0.0",
+    "x-xss-protection": "^2.0.0"
   }
 }

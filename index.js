@@ -17,8 +17,8 @@ const cookieSession = require('cookie-session')
 const cors = require('cors')
 const nocache = require("nocache")
 var cookieParser = require('cookie-parser')
-var csrf = require('csurf')
 var bodyParser = require('body-parser')
+const xXssProtection = require("x-xss-protection");
 
 
 const app = express()
@@ -62,7 +62,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(helmet.xssFilter({ setOnOldIE: true }));
+app.use(xXssProtection());
+app.use((req, res, next) => {
+  res.setHeader("X-XSS-Protection", "1; mode=block");
+  next();
+});
+
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
 app.use(helmet.frameguard());
