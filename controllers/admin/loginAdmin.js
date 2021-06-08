@@ -12,12 +12,12 @@ module.exports = (req, res) => {
                     res.redirect('/admin/database')
                 }
                 else {
-                    res.redirect('/admin/login')
+                    res.redirect('/admin')
                 }
             })
         }
         else {
-            res.redirect('/admin/auth/login')
+            res.redirect('/admin/users/login')
         }
     })
 }
