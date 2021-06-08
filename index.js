@@ -19,8 +19,6 @@ const nocache = require("nocache")
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 const xXssProtection = require("x-xss-protection");
-const crossdomain = require('helmet-crossdomain')
-
 
 const app = express()
 
@@ -61,7 +59,7 @@ app.use(cors())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+
 
 app.use(xXssProtection());
 app.use((req, res, next) => {
@@ -69,8 +67,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(crossdomain());
-app.use(crossdomain({ permittedPolicies: 'master-only' }))
 
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
@@ -79,11 +75,10 @@ app.use(helmet.hidePoweredBy());
 app.use(helmet.hsts());
 app.use(helmet.ieNoOpen());
 app.use(helmet.noSniff());
-app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 
 
-var expiryday = new Date( Date.now() + 60 * 60 * 1000);
+var expiryday = new Date(Date.now() + 60 * 60 * 1000);
 app.set('trust proxy', 1) // trust first proxy
 app.use(cookieSession({
   secret: 'anystringoftext',
@@ -95,6 +90,8 @@ app.use(cookieSession({
     expires: expiryday
   }
 }))
+
+
 app.use(
   compression({
     level: 6,
