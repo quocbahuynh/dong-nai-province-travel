@@ -79,7 +79,7 @@ app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 
 
-
+var expiryday = new Date( Date.now() + 60 * 60 * 1000);
 app.set('trust proxy', 1) // trust first proxy
 app.use(cookieSession({
   secret: 'anystringoftext',
@@ -87,7 +87,8 @@ app.use(cookieSession({
   keys: ['key1', 'key2'],
   cookie: {
     secure: true,
-    httpOnly: true
+    httpOnly: true,
+    expires: expiryday
   }
 }))
 app.use(
