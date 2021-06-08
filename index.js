@@ -163,6 +163,7 @@ app.get('/admin/logout', logoutController)
 app.use((req, res) => res.redirect('/'));
 
 global.loggedIn = null;
+
 app.use("*", (req, res, next) => {
   loggedIn = req.session.userId;
   next()

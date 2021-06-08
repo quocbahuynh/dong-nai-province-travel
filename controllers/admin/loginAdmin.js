@@ -9,15 +9,21 @@ module.exports = (req, res) => {
                 if (same) { // if passwords match
                     // store user session, will talk about it later
                     req.session.userId = user._id
-                    res.redirect('/admin/database')
+                    res
+                    .set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
+                    .redirect('/admin/database')
                 }
                 else {
-                    res.redirect('/admin')
+                    res
+                    .set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
+                    .redirect('/admin')
                 }
             })
         }
         else {
-            res.redirect('/admin/users/login')
+            res
+            .set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
+            .redirect('/admin/users/login')
         }
     })
 }

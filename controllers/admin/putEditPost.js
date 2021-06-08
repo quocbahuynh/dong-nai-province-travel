@@ -2,5 +2,7 @@ const ReadData = require('../../models/ReadData');
 
 module.exports = async (req, res) => {
     await ReadData.updateOne({ _id: req.params.id }, req.body)
-    res.redirect("/admin/database")
+    res
+    .set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
+    .redirect("/admin/database")
 }

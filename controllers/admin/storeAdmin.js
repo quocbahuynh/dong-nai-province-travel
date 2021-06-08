@@ -1,8 +1,9 @@
 //process
 const User = require('../../models/NewAdmin')
 module.exports = async (req, res) => {
-    console.log(req.body)
     await User.create(req.body, (error, user) => {
-        res.redirect('/admin/database')
+        res
+        .set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
+        .redirect('/admin/database')
     })
 }
