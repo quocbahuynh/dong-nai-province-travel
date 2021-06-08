@@ -90,6 +90,11 @@ app.use(helmet.hidePoweredBy());
 app.use(helmet.hsts());
 app.use(helmet.ieNoOpen());
 app.use(helmet.noSniff());
+app.use(
+  helmet.permittedCrossDomainPolicies({
+    permittedPolicies: "master-only",
+  })
+);
 app.use(helmet.referrerPolicy());
 
 
