@@ -19,6 +19,7 @@ const nocache = require("nocache")
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 const xXssProtection = require("x-xss-protection");
+const crossdomain = require('helmet-crossdomain')
 
 
 const app = express()
@@ -67,6 +68,9 @@ app.use((req, res, next) => {
   res.setHeader("X-XSS-Protection", "1; mode=block");
   next();
 });
+
+app.use(crossdomain());
+app.use(crossdomain({ permittedPolicies: 'master-only' }))
 
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
