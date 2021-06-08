@@ -19,6 +19,7 @@ const nocache = require("nocache")
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 const xXssProtection = require("x-xss-protection");
+const contentSecurityPolicy = require("helmet-csp");
 
 const app = express()
 
@@ -67,6 +68,20 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(
+  contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      defaultSrc: ["'self'", "*"],
+      scriptSrc: ["'self'", "ajax.googleapis.com", "google.com", "cdn.jsdelivr.net"],
+      frameSrc: ["https://*.google.com"],
+      objectSrc: ["'none'"],
+      imgSrc: ["'self'", "data:image/svg+xml"],
+      upgradeInsecureRequests: [],
+    },
+    reportOnly: false,
+  })
+);
 
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
