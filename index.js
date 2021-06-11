@@ -39,11 +39,11 @@ const registerPostController = require('./controllers/admin/register')
 const storeAdminPostController = require('./controllers/admin/storeAdmin')
 const loginAdminController = require('./controllers/admin/login')
 const loginAdminProcessController = require('./controllers/admin/loginAdmin')
-const authMiddleware = require('./middleware/authMiddleware')
-const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
 const logoutController = require('./controllers/admin/logout')
 
-
+// Middleware 
+const authMiddleware = require('./middleware/authMiddleware')
+const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
 
 var error = Errored.error("ⶇ끶๢ɠ䘍䁧ĸව將꓀萈怢肮‌怌肖愐޺ﬖ䀂̰À⌧őﳩ6䔐Ű੬鶀㩨솃⑍㐤ᢱꖇᨳ⣤祓谔");
 mongoose.plugin(slug);
@@ -54,6 +54,11 @@ mongoose.connect(error, {
   useCreateIndex: true
 });
 
+app.use((req, res, next) => {
+  res
+    .setHeader("X-XSS-Protection", "1; mode=block")
+  next();
+});
 
 app.use(nocache());
 app.use(cors())
@@ -61,19 +66,15 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 app.use(xXssProtection());
-app.use((req, res, next) => {
-  res.setHeader("X-XSS-Protection", "1; mode=block");
-  next();
-});
+
 
 app.use(
   contentSecurityPolicy({
     useDefaults: true,
     directives: {
       defaultSrc: ["'self'", "*", "report-uri /csp_report_parser"],
-      scriptSrc: ["'self'", "ajax.googleapis.com", "google.com", "cdn.jsdelivr.net"],
+      scriptSrc: ["'self'", "ajax.googleapis.com", "google.com", "cdn.jsdelivr.net", "cdnjs.cloudflare.com"],
       frameSrc: ["https://*.google.com"],
       objectSrc: ["'none'"],
       imgSrc: ["'self' data:", "data:image/svg+xml"],
@@ -134,7 +135,7 @@ app.use(methodOverride('_method'))
 
 //Client
 app.get('/', indexController)
-app.get('/post', postController)
+app.get('/post/:slug', postController)
 
 
 // Admin
@@ -163,7 +164,6 @@ app.get('/admin/logout', logoutController)
 app.use((req, res) => res.redirect('/'));
 
 global.loggedIn = null;
-
 app.use("*", (req, res, next) => {
   loggedIn = req.session.userId;
   next()
