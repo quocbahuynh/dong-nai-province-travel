@@ -46,6 +46,7 @@ const authMiddleware = require('./middleware/authMiddleware')
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware')
 
 var error = Errored.error("ⶇ끶๢ɠ䘍䁧ĸව將꓀萈怢肮‌怌肖愐޺ﬖ䀂̰À⌧őﳩ6䔐Ű੬鶀㩨솃⑍㐤ᢱꖇᨳ⣤祓谔");
+console.log(error);
 mongoose.plugin(slug);
 mongoose.connect(error, {
   useNewUrlParser: true,

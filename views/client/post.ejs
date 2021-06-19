@@ -46,11 +46,19 @@
                     <li>
                         <p class="h1" style="margin-top: 30px">I. Vị trí địa lý</p>
                     </li>
-                    <li>
-                        <p>
-                        <pre><%= postSlug[0].text1 %></pre>
-                        </p>
-                    </li>
+                    <ul style="margin-left: 10px;">
+                        <div class="row justify-content-start photo">
+                            <div class="col-md-6">
+                                <li class="lh-lg">
+                                    <p>
+                                    <pre><%= postSlug[0].text1 %></pre>
+                                    </p>
+                                </li>
+                            </div>
+                            <div class="col-md-6"><img src="<%= postSlug[0].img3 %>" width="100%"
+                                    style="image-rendering: pixelated;" alt=""></div>
+                        </div>
+                    </ul>
                     <li>
                         <p class="h1" style="margin-top: 30px">II. Tổng quan</p>
                     </li>
@@ -61,7 +69,7 @@
                         <p class="h1" style="margin-top: 30px">III. Đơn vị hành chính</p>
                     </li>
                     <ul style="margin-left: 10px;">
-                        <div class="row justify-content-start">
+                        <div class="row justify-content-start photo">
                             <div class="col-md-6">
                                 <li class="lh-lg">
                                     <p>
@@ -69,7 +77,7 @@
                                     </p>
                                 </li>
                             </div>
-                            <div class="col-md-6"><img src="/client/img/bienhoa.jpg" width="100%"
+                            <div class="col-md-6"><img src="<%= postSlug[0].img4 %>" width="100%"
                                     style="image-rendering: pixelated;" alt=""></div>
                         </div>
                     </ul>
@@ -78,11 +86,17 @@
                         <p class="h1" style="margin-top: 30px">IV. Điều kiện tự nhiên:</p>
                     </li>
                     <ul style="margin-left: 10px;">
-                        <li>
-                            <p>
-                            <pre><%= postSlug[0].text4 %></pre>
-                            </p>
-                        </li>
+                        <div class="row justify-content-start photo">
+                            <div class="col-md-6">
+                                <li class="lh-lg">
+                                    <p>
+                                    <pre><%= postSlug[0].text4 %></pre>
+                                    </p>
+                                </li>
+                            </div>
+                            <div class="col-md-6"><img src="<%= postSlug[0].img5 %>" width="100%"
+                                    style="image-rendering: pixelated;" alt=""></div>
+                        </div>
                     </ul>
                     </li>
                     <li>
@@ -97,7 +111,7 @@
                     </ul>
                     </li>
                     <li>
-                        <p class="h1" style="margin-top: 30px">VI. Các khu công nghiệp: </p>
+                        <p class="h1" style="margin-top: 30px">VI. Khu công nghiệp: </p>
                     </li>
                     <ul style="margin-left: 10px;">
                         <li>
@@ -105,27 +119,56 @@
                             <pre><%= postSlug[0].text6 %></pre>
                             </p>
                         </li>
+                        <% for(var i=1; i < 7; i++) { %>
+                            <% if(postSlug[0].img6['photo' + i] !='' ) { %>
+                                <div class="col-md-6"><img src="<%= postSlug[0].img6['photo' + i] %>" width="100%"
+                                        style="image-rendering: pixelated;" alt=""></div>
+                                <% } %>
+                                    <% } %>
+                                        <li>
+                                            <p>
+                                            <pre><%= postSlug[0].text7 %></pre>
+                                            </p>
+                                        </li>
                     </ul>
-                    </li>
                     <li>
-                        <p class="h1" style="margin-top: 30px">VI. Các cụm công nghiệp:</p>
-                    </li>
-                    <p>
-                    <pre><%= postSlug[0].text7 %></pre>
-                    </p>
-                    </li>
-                    <li>
-                        <p class="h1" style="margin-top: 30px">VII. Du lịch:</p>
+                        <p class="h1" style="margin-top: 30px">VI. Cụm công nghiệp:</p>
                     </li>
                     <p>
                     <pre><%= postSlug[0].text8 %></pre>
                     </p>
-                    <li>
-                        <p class="h1" style="margin-top: 30px">IX. Tổng quan thành phố Biên Hòa qua flycam</p>
                     </li>
-                    <p>
-                    <pre><%= postSlug[0].text9 %></pre>
-                    </p>
+                    <li>
+                        <p class="h1" style="margin-top: 30px">VII. Thắng cảnh, du lịch</p>
+                    </li>
+                    <ul style="margin-left: 10px;">
+                        <li>
+                            <p>
+                            <pre><%= postSlug[0].text9 %></pre>
+                            </p>
+                        </li>
+                        <% for(var i=1; i < 11; i++) { %>
+                            <% if(postSlug[0].img7['photo' + i] !='' ) { %>
+                                <li>
+                                    <div class="col-md-6"><img src="<%= postSlug[0].img7['photo' + i] %>" width="100%"
+                                            style="image-rendering: pixelated;" alt=""></div>
+                                </li>
+                                <% } %>
+                                    <% } %>
+                                        <li>
+                                            <p>
+                                            <pre><%= postSlug[0].text10 %></pre>
+                                            </p>
+                                        </li>
+                    </ul>
+                    <br /><br />
+                    <li>
+                        <center>
+                            <div class="ytb">
+
+                            </div>
+                        </center>
+                    </li>
                 </ul>
 
 
@@ -135,6 +178,33 @@
             <%- include('layouts/footer'); -%>
                 <!--Script-->
                 <%- include('layouts/script'); -%>
+
+                    <script>
+                        var allPhoto = document.getElementsByClassName("photo");
+
+                        for (const photo of allPhoto) {
+                            if (photo.getElementsByTagName("img")[0].src.search(".png") == -1) {
+                                photo.getElementsByTagName("div")[1].className = "col-md-0";
+                                photo.getElementsByTagName("div")[0].className = "col-md-12";
+                            }
+                        }
+                    </script>
+                    <script>
+                        function getId(url) {
+                            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+                            const match = url.match(regExp);
+
+                            return (match && match[2].length === 11)
+                                ? match[2]
+                                : null;
+                        }
+
+                        var urlne = "<%= postSlug[0].iframe %>";
+                        const videoId = getId(urlne);
+                        const iframeMarkup = '<iframe width="560" height="315" src="//www.youtube.com/embed/'
+                            + videoId + '" frameborder="0" allowfullscreen></iframe>';
+                        document.getElementsByClassName('ytb')[0].innerHTML = iframeMarkup
+                    </script>
     </body>
 
 </html>
