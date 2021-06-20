@@ -141,8 +141,9 @@ section {
 }
 
 #header .logo img {
-  width: 100%;
+  width: 50%;
   overflow: hidden;
+  margin-top: 20px;
 }
 
 .menu {
