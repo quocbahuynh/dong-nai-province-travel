@@ -1,399 +1,431 @@
 <!DOCTYPE html>
 <html>
-    <!--Header-->
-    <%- include('layouts/header'); -%>
-<body>
- 
-    <!--Nav-->
-    <%- include('layouts/nav'); -%>
-      
+<!--Header-->
+<%- include('layouts/header'); -%>
 
-    
-    <section class="banner" id="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="banner-caption">
-                        <div class="line-dec"></div>
-                        <h2>QUOHAT TRAVEL QR</h2>
-                        <span>Tận hưởng những đặc quyền nghỉ dưỡng từ công nghệ QR</span>
-                        <div class="blue-button">
-                            <a class="scrollTo" data-scrollTo="popular" href="#">KHÁM PHÁ</a>
-                        </div>
-                    </div>
-                    <div class="submit-form">
-                        <form id="form-submit" action="" method="get">
-                            <div class="row">
-                                <div class="col-md-6 third-item">
-                                    <fieldset>
-                                        <select required name='category' onchange=''>
-                                            <option value="">Thành Phố/Huyện</option>
-                                            <option value="">Thành Phố Biên Hòa</option>
-                                            <option value="">Thành Phố Long Khánh</option>
-                                            <option value="">Huyện Cẩm Mỹ</option>
-                                            <option value="">Huyện Trảng Bom</option>
-                                            <option value="">Huyện Định Quán</option>
-                                            <option value="">Huyện Long Thành</option>
-                                            <option value="">Huyện Nhơn Trạch</option>
-                                            <option value="">Huyện Tân Phú</option>
-                                            <option value="">Huyện Thống Nhất</option>
-                                            <option value="">Huyện Vĩnh Cửu</option>
-                                            <option value="">Huyện Xuân Lộc</option>
-                                            
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <button type="submit" id="form-submit" class="btn">Tìm Kiếm</button>
-                                    </fieldset>
+    <body>
+
+        <!--Nav-->
+        <%- include('layouts/nav'); -%>
+
+
+
+            <section class="banner" id="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="banner-caption">
+                                <div class="line-dec"></div>
+                                <h2>QUOHAT TRAVEL QR</h2>
+                                <span>Tận hưởng những đặc quyền nghỉ dưỡng từ công nghệ QR</span>
+                                <div class="blue-button">
+                                    <a class="scrollTo" data-scrollTo="popular" href="#">KHÁM PHÁ</a>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="popular-places" id="popular">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading">
-                        <span>KHÁM PHÁ</span>
-                        <h2>TRẢI NGHIỆM TRÊN MỌI MIỀN ĐẤT NƯỚC</h2>
-                    </div>
-                </div> 
-            </div> 
-            <div class="owl-carousel owl-theme">
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_1.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Mauris tempus</h4>
-                            <span>76 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_2.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Aenean dolor</h4>
-                            <span>18 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_3.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Nunc at quam</h4>
-                            <span>55 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_4.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Fusce ac turpis</h4>
-                            <span>66 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_5.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Lorem ipsum</h4>
-                            <span>82 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_1.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Praesent nec</h4>
-                            <span>76 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_2.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Suspendisse</h4>
-                            <span>36 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_3.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Bibendum</h4>
-                            <span>48 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_4.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Quisque sodales</h4>
-                            <span>66 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_5.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Pellentesque</h4>
-                            <span>85 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_1.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Commodo</h4>
-                            <span>76 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_2.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Adipiscing</h4>
-                            <span>32 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_3.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Etiam hendrerit</h4>
-                            <span>49 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_4.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Suspendisse</h4>
-                            <span>63 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item popular-item">
-                    <div class="thumb">
-                        <img src="/client/img/popular_item_5.jpg" alt="">
-                        <div class="text-content">
-                            <h4>Sit amet dictum</h4>
-                            <span>86 listings</span>
-                        </div>
-                        <div class="plus-button">
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    
-    
-    <section id="video-container">
-        <div class="video-overlay"></div>
-        <div class="video-content">
-            <div class="inner">
-                <span>PHÚ QUỐC UNITED CENTER</span>
-                <h2>Vũ trụ nghỉ dưỡng, vui chơi giải trí bất tận.</h2>
-            </div>
-        </div>
-        <video autoplay="" loop="" muted>
-        	<source src="/client/vinpreal.mp4" type="video/mp4" />
-        </video>
-    </section>
-
-    <section class="our-services" id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading">
-                        <span>VỀ CHÚNG TÔI</span>
-                        <h2>DU LỊCH CÙNG CÔNG NGHỆ QR</h2>
-                    </div>
-                </div> 
-            </div> 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="/client/img/service_icon_1.png" alt="">
-                        </div>
-                        <h4>TÌM KIẾM NHANH</h4>
-                        <p>Etiam viverra nibh at lorem hendrerit porta non nec ligula. Donec hendrerit porttitor pretium. Suspendisse fermentum nec risus.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="/client/img/service_icon_2.png" alt="">
-                        </div>
-                        <h4>PHỔ BIẾN</h4>
-                        <p>Vivamus nec vehicula felis, sit amet convallis ex. Aenean dolor risus, rutrum at tincidunt eget, placerat ac mauris.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="/client/img/service_icon_3.png" alt="">
-                        </div>
-                        <h4>THÂN THIỆN MÔI TRƯỜNG</h4>
-                        <p>Praesent nec dui sed urna pharetra dapibus at ac elit. Aenean hendrerit metus leo, quis viverra purus condimentum nec.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1002452.5823060513!2d106.60389594647611!3d11.051339256523924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d952b84aea25%3A0xe04ae6f14b6e1655!2zxJDhu5NuZyBOYWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1622350873973!5m2!1svi!2s" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div class="container">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="wrapper" style="display: none;">
-                  <div class="section-heading">
-                      <span>Contact Us</span>
-                      <h2>Vivamus nec vehicula felis</h2>
-                  </div>
-                  <!-- Modal button -->
-                  <button id="modBtn" class="modal-btn">Talk to us</button>
-                </div>  
-                <div id="modal" class="modal">
-                  <!-- Modal Content -->
-                  <div class="modal-content">
-                    <div class="close fa fa-close"></div>
-                    <div class="row">
-                        <div class="col-md-8"> 
-                            <div class="left-content">
+                            <div class="submit-form">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="section-heading">
-                                            <span>Talk To Us</span>
-                                            <h2>Let's have a discussion</h2>
-                                        </div>
+                                    <div class="col-md-6 third-item">
+                                        <fieldset>
+                                            <select id="district">
+                                                <% for (var i=0; i < data.length; i++) { %>
+                                                    <option value="<%= data[i].slug %>">
+                                                        <%= data[i].district %>
+                                                    </option>
+                                                    <% } %>
+                                            </select>
+                                        </fieldset>
                                     </div>
                                     <div class="col-md-6">
-                                      <fieldset>
-                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                                      </fieldset>
-                                    </div>
-                                     <div class="col-md-6">
-                                      <fieldset>
-                                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject..." required="">
-                                      </fieldset>
-                                    </div>
-                                    <div class="col-md-12">
-                                      <fieldset>
-                                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                                      </fieldset>
-                                    </div>
-                                    <div class="col-md-12">
-                                      <fieldset>
-                                        <button type="submit" id="form-submit" class="btn">Send Message</button>
-                                      </fieldset>
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" onclick="redict()" class="btn">Tìm
+                                                Kiếm</button>
+                                        </fieldset>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="popular-places" id="popular">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-heading">
+                                <span>KHÁM PHÁ</span>
+                                <h2>TRẢI NGHIỆM TRÊN MỌI MIỀN ĐẤT NƯỚC</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-carousel owl-theme">
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_1.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Mauris tempus</h4>
+                                    <span>76 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_2.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Aenean dolor</h4>
+                                    <span>18 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_3.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Nunc at quam</h4>
+                                    <span>55 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_4.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Fusce ac turpis</h4>
+                                    <span>66 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_5.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Lorem ipsum</h4>
+                                    <span>82 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_1.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Praesent nec</h4>
+                                    <span>76 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_2.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Suspendisse</h4>
+                                    <span>36 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_3.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Bibendum</h4>
+                                    <span>48 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_4.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Quisque sodales</h4>
+                                    <span>66 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_5.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Pellentesque</h4>
+                                    <span>85 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_1.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Commodo</h4>
+                                    <span>76 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_2.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Adipiscing</h4>
+                                    <span>32 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_3.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Etiam hendrerit</h4>
+                                    <span>49 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_4.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Suspendisse</h4>
+                                    <span>63 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item popular-item">
+                            <div class="thumb">
+                                <img src="/client/img/popular_item_5.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Sit amet dictum</h4>
+                                    <span>86 listings</span>
+                                </div>
+                                <div class="plus-button">
+                                    <a href="#"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="our-services" id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-heading">
+                                <span>CÁC ĐỊA ĐIỂM</span>
+                                <h2>DU LỊCH CÙNG CÔNG NGHỆ QR</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <% for (var i=0; i < 9; i++) { %>
+                            <div class="col-md-4" style="margin-top: 10px;">
+                                <div class="service-item">
+                                    <div class="icon" style="width: 100%;
+                                    height: 170px;
+                                    overflow: hidden;">
+                                        <img src="<%= data[i].img1 %>" alt="" style="width: 100%;
+                                        height: 300px;
+                                        margin: -50px auto">
+                                    </div>
+                                    <h4>
+                                        <%= data[i].district %>
+                                    </h4>
+                                    <p>Etiam viverra nibh at lorem hendrerit porta non nec ligula. Donec hendrerit
+                                        porttitor
+                                        pretium. Suspendisse fermentum nec risus.</p>
+                                    <div class="blue-button">
+                                        <a href="/post/<%= data[i].slug %>">KHÁM PHÁ</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </section>
+
+            <section class="our-services" id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-heading">
+                                <span>VỀ CHÚNG TÔI</span>
+                                <h2>DU LỊCH CÙNG CÔNG NGHỆ QR</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <img src="/client/img/service_icon_1.png" alt="">
+                                </div>
+                                <h4>TÌM KIẾM NHANH</h4>
+                                <p>Etiam viverra nibh at lorem hendrerit porta non nec ligula. Donec hendrerit porttitor
+                                    pretium. Suspendisse fermentum nec risus.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="right-content">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <img src="/client/img/service_icon_2.png" alt="">
+                                </div>
+                                <h4>PHỔ BIẾN</h4>
+                                <p>Vivamus nec vehicula felis, sit amet convallis ex. Aenean dolor risus, rutrum at
+                                    tincidunt eget, placerat ac mauris.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <img src="/client/img/service_icon_3.png" alt="">
+                                </div>
+                                <h4>THÂN THIỆN MÔI TRƯỜNG</h4>
+                                <p>Praesent nec dui sed urna pharetra dapibus at ac elit. Aenean hendrerit metus leo,
+                                    quis viverra purus condimentum nec.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact" id="contact">
+                <div id="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1002452.5823060513!2d106.60389594647611!3d11.051339256523924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d952b84aea25%3A0xe04ae6f14b6e1655!2zxJDhu5NuZyBOYWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1622350873973!5m2!1svi!2s"
+                        width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="container">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="wrapper" style="display: none;">
+                            <div class="section-heading">
+                                <span>Contact Us</span>
+                                <h2>Vivamus nec vehicula felis</h2>
+                            </div>
+                            <!-- Modal button -->
+                            <button id="modBtn" class="modal-btn">Talk to us</button>
+                        </div>
+                        <div id="modal" class="modal">
+                            <!-- Modal Content -->
+                            <div class="modal-content">
+                                <div class="close fa fa-close"></div>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="content">                                          
-                                            <div class="section-heading">
-                                                <span>More About Us</span>
-                                                <h2>Venue Company</h2>
+                                    <div class="col-md-8">
+                                        <div class="left-content">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="section-heading">
+                                                        <span>Talk To Us</span>
+                                                        <h2>Let's have a discussion</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <fieldset>
+                                                        <input name="name" type="text" class="form-control" id="name"
+                                                            placeholder="Your name..." required="">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <fieldset>
+                                                        <input name="subject" type="text" class="form-control"
+                                                            id="subject" placeholder="Subject..." required="">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <fieldset>
+                                                        <textarea name="message" rows="6" class="form-control"
+                                                            id="message" placeholder="Your message..."
+                                                            required=""></textarea>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <fieldset>
+                                                        <button type="submit" id="form-submit" class="btn">Send
+                                                            Message</button>
+                                                    </fieldset>
+                                                </div>
                                             </div>
-                                            <p>Etiam viverra nibh at lorem hendrerit porta non nec ligula. Donec hendrerit porttitor pretium. Suspendisse fermentum nec risus eu bibendum.</p>
-                                            <ul>
-                                                <li><span>Phone:</span><a href="#">010-050-0550</a></li>
-                                                <li><span>Email:</span><a href="#">hi@company.co</a></li>
-                                                <li><span>Address:</span><a href="#">company.co</a></li>
-                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="right-content">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="content">
+                                                        <div class="section-heading">
+                                                            <span>More About Us</span>
+                                                            <h2>Venue Company</h2>
+                                                        </div>
+                                                        <p>Etiam viverra nibh at lorem hendrerit porta non nec ligula.
+                                                            Donec hendrerit porttitor pretium. Suspendisse fermentum nec
+                                                            risus eu bibendum.</p>
+                                                        <ul>
+                                                            <li><span>Phone:</span><a href="#">010-050-0550</a></li>
+                                                            <li><span>Email:</span><a href="#">hi@company.co</a></li>
+                                                            <li><span>Address:</span><a href="#">company.co</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>      
-                  </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
 
 
-    <!--Footer-->
-    <%- include('layouts/footer'); -%>
+            <!--Footer-->
+            <%- include('layouts/footer'); -%>
 
-    <!--Script-->
-    <%- include('layouts/script'); -%>
-</body>
+                <!--Script-->
+                <%- include('layouts/script'); -%>
+                    <script>
+                        function redict() {
+
+                            var url = document.getElementById("district").value;
+                            window.location.href = "/post/" + url;
+                        }
+                    </script>
+    </body>
+
 </html>
