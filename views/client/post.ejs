@@ -119,25 +119,30 @@
                             <pre><%= postSlug[0].text6 %></pre>
                             </p>
                         </li>
-                        <% for(var i=1; i < 7; i++) { %>
-                            <% if(postSlug[0].img6['photo' + i] !='' ) { %>
-                                <div class="col-md-6"><img src="<%= postSlug[0].img6['photo' + i] %>" width="100%"
-                                        style="image-rendering: pixelated;" alt=""></div>
-                                <% } %>
+                        <ul>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <% if(postSlug[0].img6['photo' + i] !='' ) { %>
+                                    <center><li>
+                                        <div class="col-md-12"><img src="<%= postSlug[0].img6['photo' + i] %>"
+                                                width="50%" style="image-rendering: pixelated; margin-top: 20px;" alt=""></div>
+                                    </li></center>
                                     <% } %>
-                                        <li>
-                                            <p>
-                                            <pre><%= postSlug[0].text7 %></pre>
-                                            </p>
-                                        </li>
+                                        <% } %>
+                        </ul>
+                        <li>
+                            <p>
+                            <pre><%= postSlug[0].text7 %></pre>
+                            </p>
+                        </li>
                     </ul>
                     <li>
-                        <p class="h1" style="margin-top: 30px">VI. Cụm công nghiệp:</p>
+                        <p class="h1" style="">VI. Cụm công nghiệp:</p>
                     </li>
-                    <p>
-                    <pre><%= postSlug[0].text8 %></pre>
-                    </p>
-                    </li>
+                    <ul style="margin-left: 10px;">
+                        <p>
+                        <pre><%= postSlug[0].text8 %></pre>
+                        </p>
+                    </ul>
                     <li>
                         <p class="h1" style="margin-top: 30px">VII. Thắng cảnh, du lịch</p>
                     </li>
@@ -149,10 +154,10 @@
                         </li>
                         <% for(var i=1; i < 11; i++) { %>
                             <% if(postSlug[0].img7['photo' + i] !='' ) { %>
-                                <li>
-                                    <div class="col-md-6"><img src="<%= postSlug[0].img7['photo' + i] %>" width="100%"
-                                            style="image-rendering: pixelated;" alt=""></div>
-                                </li>
+                                <center><li>
+                                    <div class="col-md-12"><img src="<%= postSlug[0].img7['photo' + i] %>" width="50%"
+                                            style="image-rendering: pixelated; margin-top: 20px;" alt=""></div>
+                                </li></center>
                                 <% } %>
                                     <% } %>
                                         <li>
