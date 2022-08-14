@@ -1,7 +1,7 @@
 
 # Dong Nai Province Travel
 
-A website for people come from others place who want to have a travel in Dong Nai. All of information about each district in Dong Nai will be shown on website to help tourists have esay to make choices. 
+A website for people who come from other places who want to travel to Dong Nai. All of the information about each district in Dong Nai will be shown on the website to help tourists have easy to make choices
 
 
 
